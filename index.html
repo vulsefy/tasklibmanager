@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskLib</title>
+    <title>Responsive Task Manager</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,16 +11,19 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
             margin: 0;
             transition: background-color 0.3s ease;
         }
+        
+        .dark-mode .body {
+            background: linear-gradient(rgb(7, 1, 1), rgb(0, 0, 144));
+        }
 
         .container {
-            margin-top: 30px;
-            background: #ffffff;
+            margin-top: 2cm;
+            background: #1c1c1c;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 50px 5px; black;
             border-radius: 8px;
             max-width: 600px;
             width: 100%;
@@ -31,6 +34,7 @@
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #fff;
         }
 
         .input-container {
@@ -43,6 +47,8 @@
 
         input[type="text"], input[type="date"], select, button {
             width: 100%;
+            font-weight: bold;
+            font-family:Georgia, 'Times New Roman', Times, serif;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -51,7 +57,7 @@
         }
 
         button {
-            background-color: #f3c221;
+            background-color: #ff8800;
             color: #ffffff;
             border: none;
             border-radius: 15px;
@@ -63,7 +69,9 @@
         }
 
         button:hover {
-            background-color: #d4a610;
+            height: 60px;
+            background-color: #b90606c2;
+            transition: 0.6s;
         }
 
         ul {
@@ -87,9 +95,10 @@
 
         li.completed {
             text-decoration: line-through;
-            color: #888;
+            color: #2d5da5;
             border-radius: 15px;
             gap: 12px;
+            cursor: pointer;
             margin-bottom: 12px;
         }
 
@@ -101,32 +110,42 @@
             border-radius: 35px;
             cursor: pointer;
             margin-left: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.6s ease-in-out;
         }
 
         li button:hover {
-            background-color: #c82333;
+            height: 40px;
+            width: 72px;
+            background-color: #ff9100;
+            transition: background-color 0.6s ease-in-out;
+            transition: 0.6s ease-in-out;
         }
 
         li.low {
-            background-color: #ffffff;
+            cursor: pointer;
+            background-color: #00ff3c;
+            color: #222
         }
 
         li.medium {
-            background-color: #ffffff;
+            cursor: pointer;
+            background-color: #e6af0a;
+            color: #222
         }
 
         li.high {
-            background-color: #ffffff;
+            cursor: pointer;
+            background-color: #ee606c;
+            color: #222
         }
 
         .dark-mode {
             background-color: #333;
-            color: #b1b1b1;
+            color: #fdfdfd;
         }
 
         .dark-mode .container {
-            background-color: #444;
+            background-color: #1f1f1f;
         }
 
         .dark-mode .input-container {
@@ -201,7 +220,7 @@
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
-                margin-top: 30px;
+                margin-top: 365px;
                 max-width: 94%;
             }
 
@@ -240,7 +259,7 @@
         </label>
     </div>
     <div class="container">
-        <h1>Tasklib - Task Manager</h1>
+        <h1>Task Manager</h1>
         <div class="input-container">
             <input type="text" id="taskInput" placeholder="Add a new task...">
             <input type="date" id="dueDateInput">
